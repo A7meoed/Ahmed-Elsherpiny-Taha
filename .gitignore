@@ -1,0 +1,22 @@
+# Python virtual environments
+.venv/
+**/.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# Node
+node_modules/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset
+notebooks/data/house_prices.csv
+
+notebooks/house_price.pkl
