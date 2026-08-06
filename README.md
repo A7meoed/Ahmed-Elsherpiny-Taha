@@ -226,4 +226,4 @@ The notebook compares Linear Regression and Random Forest Regressor using MAE, R
 Ahmed Elsherpiny
 
 - GitHub: https://github.com/A7meoed
-- Repository: https://github.com/A7meoed/Ahmed-Elsherpiny-Taha
+- Repository: https://github.com/A7meoed/house-price-prediction
