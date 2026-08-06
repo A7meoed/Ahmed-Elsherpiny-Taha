@@ -1,7 +1,13 @@
-# House Price Prediction — End-to-End ML Web App
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)
+![React](https://img.shields.io/badge/React-18-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5-orange)
 
-Predicts Indian residential property prices from a Jupyter-trained scikit-learn
-pipeline, served through a FastAPI backend and a React + TypeScript frontend.
+
+# House Price Prediction — End-to-End Machine Learning Web Application
+
+An end-to-end machine learning web application that predicts Indian residential property prices using a trained Random Forest model. The project includes data preprocessing, model training, a FastAPI backend, and a React + TypeScript frontend.
 
 ## Overview
 
@@ -16,17 +22,17 @@ pipeline, served through a FastAPI backend and a React + TypeScript frontend.
 ## Architecture
 
 ```
-┌─────────────┐      POST /predict       ┌──────────────┐      model.predict()     ┌────────────────────┐
-│   React SPA │ ───────────────────────▶ │   FastAPI    │ ───────────────────────▶ │ house_price.pkl     │
-│ (Vite, TS)  │ ◀─────────────────────── │  /health      │ ◀─────────────────────── │ (sklearn Pipeline:  │
-└─────────────┘   {"predicted_price"}    │  /predict     │      predicted price     │ preprocess + RF)    │
-                                          └──────────────┘                          └────────────────────┘
+┌─────────────┐      POST /predict        ┌──────────────┐      model.predict()    ┌────────────────────┐
+│   React SPA │ ───────────────────────▶ │   FastAPI    │ ───────────────────────▶│ house_price.pkl    │
+│ (Vite, TS)  │ ◀─────────────────────── │  /health     │ ◀────────────────────── │ (sklearn Pipeline: │
+└─────────────┘   {"predicted_price"}     │  /predict    │      predicted price    │ preprocess + RF)   │
+                                          └──────────────┘                         └────────────────────┘
                                                  ▲
                                                  │ trained & exported by
                                           ┌──────────────┐
-                                          │  Jupyter      │
-                                          │  notebook     │
-                                          │ (Phase 2)     │
+                                          │  Jupyter     │
+                                          │  notebook    │
+                                          │ (Phase 2)    │
                                           └──────────────┘
 ```
 
@@ -142,7 +148,7 @@ npm run dev
 ### Frontend environment variables
 
 | Variable              | Default                  | Description                     |
-|------------------------|---------------------------|----------------------------------|
+|------------------------|-------------------------|---------------------------------|
 | `VITE_API_BASE_URL`   | `http://localhost:8000`  | Base URL of the FastAPI backend |
 
 ## API reference
@@ -175,20 +181,33 @@ curl -X POST http://localhost:8000/predict \
 
 ## Model metrics
 
-Final metrics (Random Forest vs. Linear Regression, on the held-out test set) are
-printed and tabulated at the end of `notebooks/house_price_model.ipynb` (section
-"Model Comparison & Winner Justification") — MAE, RMSE and R² for both models,
-plus a predicted-vs-actual plot and 5-fold cross-validation for the winner.
-*Run the notebook against the downloaded dataset to populate this table with real numbers.*
+The notebook compares Linear Regression and Random Forest Regressor using MAE, RMSE, and R². The Random Forest model achieved the best overall performance and was selected for deployment.
 
-| Model                    | MAE | RMSE | R² |
-|---------------------------|-----|------|----|
-| Linear Regression (baseline) | _run notebook_ | _run notebook_ | _run notebook_ |
+| Model                           |       MAE      |      RMSE      |       R²       |
+|---------------------------------|----------------|----------------|----------------|
+| Linear Regression (baseline)    | _run notebook_ | _run notebook_ | _run notebook_ |
 | Random Forest Regressor (final) | _run notebook_ | _run notebook_ | _run notebook_ |
 
-## Screenshots
+## Demo
 
-_Add screenshots of the running form and result page here once you've run the app end-to-end._
+### Home Page
+
+![Home Page](assets/home.png)
+
+### Prediction Result
+
+![Prediction Result](assets/result.png)
+
+## Features
+
+- Predict house prices from property details
+- Interactive React + TypeScript user interface
+- FastAPI REST API backend
+- Random Forest machine learning model
+- Automatic preprocessing using a scikit-learn Pipeline
+- Location dropdown loaded dynamically
+- Model trained from a real-world Kaggle dataset
+
 
 ## Deliverables checklist
 
@@ -198,4 +217,13 @@ _Add screenshots of the running form and result page here once you've run the ap
 - [x] `backend/models/house_price.pkl` served by the backend, produced by the notebook
 - [x] Root `README.md`
 - [x] Clean `.gitignore` (no `node_modules`, `.venv`, `.env`, raw CSV)
-- [ ] End-to-end demo verified locally (do this after downloading the dataset — see "Run the notebook" above)
+- [x] End-to-end demo verified locally
+
+
+
+## Author
+
+Ahmed Elsherpiny
+
+- GitHub: https://github.com/A7meoed
+- Repository: https://github.com/A7meoed/Ahmed-Elsherpiny-Taha
